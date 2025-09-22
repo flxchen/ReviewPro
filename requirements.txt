@@ -4,8 +4,10 @@ asarPy==1.0.1
 blinker==1.9.0
 cachetools==5.5.2
 certifi==2025.8.3
+cffi==2.0.0
 charset-normalizer==3.4.3
 click==8.3.0
+cryptography==46.0.1
 dotenv==0.9.9
 Flask==3.1.2
 Flask-SQLAlchemy==3.1.1
@@ -23,6 +25,7 @@ MarkupSafe==3.0.2
 packaging==25.0
 pyasn1==0.6.1
 pyasn1_modules==0.4.2
+pycparser==2.23
 pydantic==2.11.9
 pydantic_core==2.33.2
 PyMySQL==1.1.2

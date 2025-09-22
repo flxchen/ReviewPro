@@ -6,10 +6,7 @@ load_dotenv()
 
 def create_app():
     app = Flask(__name__)
-    app.config["SQLALCHEMY_DATABASE_URI"] = environ.get('SQLALCHEMY_DATABASE_URI')
-    print("SQLALCHEMY_DATABASE_URI:", environ.get('SQLALCHEMY_DATABASE_URI'))
-    if not environ.get('SQLALCHEMY_DATABASE_URI'):
-        raise RuntimeError("Database URL missing!")
+    app.config["SQLALCHEMY_DATABASE_URI"] = environ.get('SQLALCHEMY_DATABASE_URI')    
     db.init_app(app)
     
     #create database tables
