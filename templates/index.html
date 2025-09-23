@@ -3,7 +3,29 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>AI Review Reply Generator</title>
+    <title>ReviewPro – AI Review Reply Generator</title>
+    <!--SEO by cj-->
+    <meta
+      name="description"
+      content="Test ReviewPro, the AI-powered review reply generator. Enter a customer review, choose tone and length, and instantly get a professional reply. Try it now and help shape the future of automated review responses."
+    />
+    <meta
+      name="keywords"
+      content="AI review reply generator, customer feedback response, automate review replies, ReviewPro"
+    />
+    <meta name="author" content="ReviewPro" />
+
+    <meta property="og:title" content="ReviewPro – AI Review Reply Generator" />
+    <meta
+      property="og:description"
+      content="Generate instant AI-powered replies to customer reviews. Choose tone, set length, and copy your professional response in one click. Test ReviewPro today!"
+    />
+    <meta
+      property="og:url"
+      content="https://reviewpro-production.up.railway.app/"
+    />
+    <meta property="og:type" content="website" />
+
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -28,162 +50,248 @@
       gtag("config", "G-4NBBHTXPYV");
     </script>
   </head>
-  <body class="bg-light">
-    <div class="container py-5">
-      <div class="alert alert-info text-center" role="alert">
-        <strong>Note:</strong> This is an Minimal Viable Product to test market
-        response. The full product will include features such as connecting to
-        review platforms, auto-replying to user reviews, and review analytics.
-        Please leave a comment.
+  <body>
+    <section class="bg-light text-center py-5">
+      <div class="container">
+        <h1 class="display-4 fw-bold">
+          Welcome to <span class="text-primary">reviewPro</span>
+        </h1>
+        <p class="lead mt-3">
+          This is a <strong>Minimal Viable Product (MVP)</strong> designed to
+          test market response. Leave a review and
+          <strong>see real-time replies instantly</strong>. The full product
+          will include integrations with review platforms, AI-powered
+          auto-replies, and review analytics.
+        </p>
+        <a href="#reviewForm" class="btn btn-primary btn-lg mt-4"
+          >Try It Now – Leave a Review</a
+        >
       </div>
-
-      <div class="card shadow-lg p-4">
-        <h2 class="mb-4 text-center">AI Review Reply Generator</h2>
-        <form id="reviewForm" class="needs-validation" novalidate>
-          <!-- Review Text -->
-          <div class="mb-3">
-            <label for="review" class="form-label">Customer Review</label>
-            <textarea
-              class="form-control"
-              id="review"
-              name="review"
-              rows="5"
-              maxlength="1000"
-              placeholder="Enter the customer review..."
-              required
-            ></textarea>
-            <div class="invalid-feedback">
-              Review is required and cannot exceed 1000 characters.
+    </section>
+    <section class="py-5">
+      <div class="container">
+        <h2 class="text-center mb-4">How It Works</h2>
+        <div class="row g-4">
+          <div class="col-md-3">
+            <div class="card shadow-sm h-100">
+              <div class="card-body text-center">
+                <h5 class="card-title">1. Enter Customer Review</h5>
+                <p class="card-text">
+                  Paste or type in the customer’s review you’d like to respond
+                  to.
+                </p>
+              </div>
             </div>
           </div>
-
-          <!-- Tone -->
-          <div class="mb-3">
-            <label for="tone" class="form-label">Tone</label>
-            <select class="form-select" id="tone" name="tone" required>
-              <option value="professional">Professional</option>
-              <option value="friendly">Friendly</option>
-              <option value="casual">Casual</option>
-            </select>
+          <div class="col-md-3">
+            <div class="card shadow-sm h-100">
+              <div class="card-body text-center">
+                <h5 class="card-title">2. Choose Reply Tone</h5>
+                <p class="card-text">professional, friendly, or casual</p>
+              </div>
+            </div>
           </div>
-
-          <!-- Reply Word Length -->
-          <div class="mb-3">
-            <label for="words" class="form-label">Reply Length</label>
-            <select class="form-select" id="words" name="words" required>
-              <option value="50">50</option>
-              <option value="100">100</option>
-            </select>
+          <div class="col-md-3">
+            <div class="card shadow-sm h-100">
+              <div class="card-body text-center">
+                <h5 class="card-title">3. Select Word Length</h5>
+                <p class="card-text">choose between 50 or 100 words reply.</p>
+              </div>
+            </div>
           </div>
-
-          <!-- Optional Instruction -->
-          <div class="mb-3">
-            <label for="instruction" class="form-label"
-              >Additional instruction (optional)</label
-            >
-            <input
-              type="text"
-              class="form-control"
-              id="instruction"
-              name="instruction"
-              maxlength="200"
-            />
+          <div class="col-md-3">
+            <div class="card shadow-sm h-100">
+              <div class="card-body text-center">
+                <h5 class="card-title">4. Add Instructions (Optional)</h5>
+                <p class="card-text">
+                  Provide extra context or custom guidance for the generated
+                  reply.
+                </p>
+              </div>
+            </div>
           </div>
-
-          <!-- Submit -->
-          <button id="generateBtn" type="submit" class="btn btn-primary w-100">
-            Generate Reply
-          </button>
-          <span id="spinner" style="display: none">⏳ Generating...</span>
-        </form>
-
-        <!-- Reply Output -->
-        <div class="mt-4">
-          <h5>Generated Reply:</h5>
-          <pre
-            id="replyOutput"
-            class="bg-white p-3 border rounded"
-            style="
-              min-height: 100px;
-              white-space: pre-wrap;
-              word-wrap: break-word;
-              word-break: break-word;
-            "
-          ></pre>
         </div>
-        <button
-          id="copyButton"
-          class="btn btn-outline-primary btn-sm mt-2"
-          onclick="copyReply()"
-          disabled
-        >
-          Copy Reply
-        </button>
+
+        <div class="text-center mt-5">
+          <div
+            class="alert alert-primary d-inline-block shadow-sm px-4 py-3"
+            role="alert"
+            style="font-size: 1.1em"
+          >
+            ✨ Once the reply is generated,<strong>
+              copy it with a single click</strong
+            >
+            and use it anywhere!
+          </div>
+        </div>
       </div>
-      <div class="feedback py-5">
-        <!--feedback form-->
-        <button class="btn-feedback" id="feedbackBtn">Give Feedback</button>
-        <div id="feedbackModal" class="modal">
-          <div class="modal-content">
-            <span class="close" id="closeModal">&times;</span>
-            <form id="feedbackForm" class="needs-validation" novalidate>
-              <h2>Product Feedback</h2>
-
-              <label for="enjoy"
-                >Do you enjoy using the auto-reply product?</label
-              >
-              <select id="enjoy" name="enjoy">
-                <option value="">-- Select --</option>
-                <option value="yes">Yes</option>
-                <option value="no">No</option>
-                <option value="neutral">Neutral</option>
-              </select>
-
-              <label for="improvement"
-                >Any improvements you’d like to see?</label
-              >
+    </section>
+    <section>
+      <div class="container">
+        <!--AI auto reply-->
+        <div class="card shadow-lg p-4">
+          <h2 class="mb-4 text-center">AI Review Reply Generator</h2>
+          <form id="reviewForm" class="needs-validation" novalidate>
+            <!-- Review Text -->
+            <div class="mb-3">
+              <label for="review" class="form-label">Customer Review</label>
               <textarea
-                id="improvement"
                 class="form-control"
-                name="improvement"
-                rows="4"
+                id="review"
+                name="review"
+                rows="5"
                 maxlength="1000"
+                placeholder="Enter the customer review..."
                 required
               ></textarea>
               <div class="invalid-feedback">
-                improvement is required and cannot exceed 1000 characters.
+                Review is required and cannot exceed 1000 characters.
               </div>
-              <label>Would you pay for it?</label>
-              <select id="pay" name="pay">
-                <option value="">-- Select --</option>
-                <option value="yes">Yes</option>
-                <option value="no">No</option>
-                <option value="maybe">Maybe</option>
+            </div>
+
+            <!-- Tone -->
+            <div class="mb-3">
+              <label for="tone" class="form-label">Tone</label>
+              <select class="form-select" id="tone" name="tone" required>
+                <option value="professional">Professional</option>
+                <option value="friendly">Friendly</option>
+                <option value="casual">Casual</option>
               </select>
+            </div>
 
-              <label>If yes, how would you prefer to pay?</label>
-              <select id="payment_type" name="payment_type">
-                <option value="">-- Select --</option>
-                <option value="per_use">Per use</option>
-                <option value="monthly">Monthly subscription</option>
-                <option value="other">Other</option>
+            <!-- Reply Word Length -->
+            <div class="mb-3">
+              <label for="words" class="form-label">Reply Length</label>
+              <select class="form-select" id="words" name="words" required>
+                <option value="50">50</option>
+                <option value="100">100</option>
               </select>
+            </div>
 
-              <label for="amount">If so, how much would you pay?</label>
-              <input type="text" id="amount" name="amount" maxlength="100" />
-
-              <button
-                class="btn btn-outline-primary btn-sm mt-4"
-                type="submit"
-                id="feedbackSubmitBtn"
+            <!-- Optional Instruction -->
+            <div class="mb-3">
+              <label for="instruction" class="form-label"
+                >Additional instruction (optional)</label
               >
-                Submit Feedback
-              </button>
-            </form>
+              <input
+                type="text"
+                class="form-control"
+                id="instruction"
+                name="instruction"
+                maxlength="200"
+              />
+            </div>
+
+            <!-- Submit -->
+            <button
+              id="generateBtn"
+              type="submit"
+              class="btn btn-primary w-100"
+            >
+              Generate Reply
+            </button>
+            <span id="spinner" style="display: none">⏳ Generating...</span>
+          </form>
+
+          <!-- Reply Output -->
+          <div class="mt-4">
+            <h5>Generated Reply:</h5>
+            <pre
+              id="replyOutput"
+              class="bg-white p-3 border rounded"
+              style="
+                min-height: 100px;
+                white-space: pre-wrap;
+                word-wrap: break-word;
+                word-break: break-word;
+              "
+            ></pre>
+          </div>
+          <button
+            id="copyButton"
+            class="btn btn-outline-primary btn-sm mt-2"
+            onclick="copyReply()"
+            disabled
+          >
+            Copy Reply
+          </button>
+        </div>
+      </div>
+    </section>
+    <section id="review-form" class="bg-light py-5">
+      <div class="container text-center">
+        <h2 class="mb-4">Help Shape the Future of reviewPro</h2>
+        <p class="mb-4">
+          Leave your review below. By participating, you’re helping us improve
+          and validate reviewPro.
+          <br /><strong>Note:</strong> Your input will be collected for testing
+          and marketing purposes only.
+        </p>
+        <!--feedback form-->
+        <div class="feedback py-5">
+          <button class="btn-feedback" id="feedbackBtn">Give Feedback</button>
+          <div id="feedbackModal" class="modal">
+            <div class="modal-content">
+              <span class="close" id="closeModal">&times;</span>
+              <form id="feedbackForm" class="needs-validation" novalidate>
+                <h2>Product Feedback</h2>
+
+                <label for="enjoy"
+                  >Do you enjoy using the auto-reply product?</label
+                >
+                <select id="enjoy" name="enjoy">
+                  <option value="">-- Select --</option>
+                  <option value="yes">Yes</option>
+                  <option value="no">No</option>
+                  <option value="neutral">Neutral</option>
+                </select>
+
+                <label for="improvement"
+                  >Any improvements you’d like to see?</label
+                >
+                <textarea
+                  id="improvement"
+                  class="form-control"
+                  name="improvement"
+                  rows="4"
+                  maxlength="1000"
+                  required
+                ></textarea>
+                <div class="invalid-feedback">
+                  improvement is required and cannot exceed 1000 characters.
+                </div>
+                <label>Would you pay for it?</label>
+                <select id="pay" name="pay">
+                  <option value="">-- Select --</option>
+                  <option value="yes">Yes</option>
+                  <option value="no">No</option>
+                  <option value="maybe">Maybe</option>
+                </select>
+
+                <label>If yes, how would you prefer to pay?</label>
+                <select id="payment_type" name="payment_type">
+                  <option value="">-- Select --</option>
+                  <option value="per_use">Per use</option>
+                  <option value="monthly">Monthly subscription</option>
+                  <option value="other">Other</option>
+                </select>
+
+                <label for="amount">If so, how much would you pay?</label>
+                <input type="text" id="amount" name="amount" maxlength="100" />
+
+                <button
+                  class="btn btn-outline-primary btn-sm mt-4"
+                  type="submit"
+                  id="feedbackSubmitBtn"
+                >
+                  Submit Feedback
+                </button>
+              </form>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </section>
     <script src="{{url_for('static',filename='js/generateReview.js')}}"></script>
     <script src="{{url_for('static',filename='js/feedback.js')}}"></script>
   </body>
